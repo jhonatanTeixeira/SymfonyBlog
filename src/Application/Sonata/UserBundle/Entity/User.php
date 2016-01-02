@@ -11,6 +11,8 @@
 
 namespace Application\Sonata\UserBundle\Entity;
 
+use BlogBundle\Entity\BlogPost;
+use Doctrine\Common\Collections\ArrayCollection;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 
 /**
@@ -29,7 +31,19 @@ class User extends BaseUser
      * @var int $id
      */
     protected $id;
-
+    
+    /**
+     * @var BlogPost
+     */
+    private $posts;
+    
+    public function __construct()
+    {
+        parent::__construct();
+        
+        $this->posts = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -38,5 +52,17 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+    
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    public function addPost(BlogPost $post)
+    {
+        $this->posts[] = $post;
+        
+        return $this;
     }
 }
