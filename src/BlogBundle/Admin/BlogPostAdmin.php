@@ -55,7 +55,12 @@ class BlogPostAdmin extends Admin
         $formMapper
             ->add('title')
             ->add('subTitle')
-            ->add('content')
+            ->add('content', 'sonata_formatter_type', [
+                'format_field' => 'formatter',
+                'source_field' => 'rawContent',
+                'target_field' => 'content',
+                'listener'     => false
+            ])
         ;
     }
 

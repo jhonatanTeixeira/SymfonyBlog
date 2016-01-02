@@ -42,6 +42,20 @@ class BlogPost extends \AppBundle\Entity\BaseEntity
      * @ORM\Column(name="content", type="text")
      */
     private $content;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rawContent", type="text")
+     */
+    private $rawContent;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="formatter", type="string")
+     */
+    private $formatter;
 
     /**
      * @var User
@@ -150,5 +164,27 @@ class BlogPost extends \AppBundle\Entity\BaseEntity
     public function getUser()
     {
         return $this->user;
+    }
+    
+    public function getRawContent()
+    {
+        return $this->rawContent;
+    }
+
+    public function getFormatter()
+    {
+        return $this->formatter;
+    }
+
+    public function setRawContent($rawContent)
+    {
+        $this->rawContent = $rawContent;
+        return $this;
+    }
+
+    public function setFormatter($formatter)
+    {
+        $this->formatter = $formatter;
+        return $this;
     }
 }

@@ -27,7 +27,8 @@
         "sonata-project/easy-extends-bundle": "^2.1",
         "sonata-project/translation-bundle": "1.0.0",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "sonata-project/intl-bundle": "^2.2"
+        "sonata-project/intl-bundle": "^2.2",
+        "sonata-project/formatter-bundle": "^2.3"
     },
     "scripts": {
         "post-install-cmd": [
