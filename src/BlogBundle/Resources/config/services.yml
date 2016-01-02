@@ -1,1 +1,6 @@
 services:
+    blog.admin.blog_post:
+        class: BlogBundle\Admin\BlogPostAdmin
+        arguments: [~, BlogBundle\Entity\BlogPost, BlogBundle:BlogPostAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: BlogPost}

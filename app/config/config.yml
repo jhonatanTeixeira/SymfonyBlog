@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -60,14 +60,10 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-#        auto_mapping: true
         entity_managers:
             default:
+                auto_mapping: true
                 mappings:
-                    ApplicationSonataUserBundle: ~
-                    SonataUserBundle: ~
-                    BlogBundle: ~
-                    AppBundle: ~
                     gedmo_translatable:
                         type: annotation
                         prefix: Gedmo\Translatable\Entity
