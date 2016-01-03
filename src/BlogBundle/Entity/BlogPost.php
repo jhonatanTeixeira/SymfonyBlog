@@ -35,6 +35,13 @@ class BlogPost extends \AppBundle\Entity\BaseEntity
      * @ORM\Column(name="subTitle", type="string", length=255)
      */
     private $subTitle;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="\Application\Sonata\MediaBundle\Entity\Media", cascade={"all"}, fetch="LAZY")
+     *
+     * @var \Application\Sonata\MediaBundle\Entity\Media
+     */
+    private $media;
 
     /**
      * @var string
@@ -185,6 +192,17 @@ class BlogPost extends \AppBundle\Entity\BaseEntity
     public function setFormatter($formatter)
     {
         $this->formatter = $formatter;
+        return $this;
+    }
+    
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    public function setMedia($media)
+    {
+        $this->media = $media;
         return $this;
     }
 }
